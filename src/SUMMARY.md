@@ -1,6 +1,6 @@
 # Summary
 
-- [Computability]()
+- [Computability](./Computability.md)
   - [Paradoxes]()
   - [Gödel, Church, and Turing]()
 - [Type Theory]()
