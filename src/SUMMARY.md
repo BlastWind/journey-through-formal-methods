@@ -1,3 +1,9 @@
 # Summary
 
-- [Chapter 1](./chapter_1.md)
+- [Computability]()
+  - [Paradoxes]()
+  - [Gödel, Church, and Turing]()
+- [Type Theory]()
+  - [Untyped lambda]()
+  - [Lambda Cube]()
+  - [CoC, CiC]()
