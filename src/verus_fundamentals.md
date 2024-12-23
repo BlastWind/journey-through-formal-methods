@@ -12,6 +12,20 @@ when needed, in a formal language that looks familiar.
 Note, the seamless lifting dream is not yet achieved: Verus only supports a [subset](https://verus-lang.github.io/verus/guide/features.html) of Rust. (TODO: Are we just lacking engineering, or are there theorectical limitations?)
 
 ## Executable vs. Specification
+Here is a common `Verus` workflow for verifying cryptography: 
+1. Wrap production crypto code in verus block, 
+2. Write a `Verus` spec for each of the components,
+3. Write a `Verus` proof for the equivalence between 
+the production crypto functions and the `Verus` spec
+for them.
+
+But this begs the question: What's so correct about the `Verus`
+specs that we wish to verify our production code on them?
+Doesn't `Verus` extend `Rust` syntax? And so how does it 
+write any differently? 
+
+(TODO: Write spec for `salsa20` to help answer this better)
+
 Spec, proof, exec
 
 int vs usize
@@ -49,7 +63,9 @@ theory-wise.
 
 I now present my list. 
 
-First, everything should be automated. First, why can't we just write the spec for function `f`, and then 
+First, why can't everything just be automated?
+
+
 
 Assert + assume is unergonomic.
 
