@@ -12,5 +12,6 @@
   - [Logic <-> Type Theories]()
 
 - [Verified Rust with Verus]()
+  - [Verus Fundamentals](./verus_fundamentals.md)
   - [Borrow Checker, Linear Types]()
   - [Case Study: Verified Parsers](./verified_parsers.md)
