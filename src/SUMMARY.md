@@ -10,6 +10,8 @@
 - [Curry Howard Correspondence]()
   - [PAT]()
   - [Logic <-> Type Theories]()
+- [SMT Solvers]()
+  - [Interfacing solvers with SAT](./interfacing_solvers_with_sat.md) 
 
 - [Verified Rust with Verus]()
   - [Verus Fundamentals](./verus_fundamentals.md)
