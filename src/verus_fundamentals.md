@@ -33,9 +33,14 @@ int vs usize
 Seq, Set, Map 
 
 
-## Three(?) ways to deal with Recursion
+## Dealing with Recursion
+Say `f_spec` is recursive but the executable `f` is imperative. How to verify that `f`
+adheres to `f_spec`?
 
+Hoare logic; loop invariants.
 ### Induction
+You probably want to write a `f_induct` that ensures the inductive case.
+After which, the main proof won't be too far away.
 
 
 ## Limitations: How to Fail Something True

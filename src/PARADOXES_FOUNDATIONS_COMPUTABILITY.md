@@ -25,3 +25,6 @@ In other words, Hilbert sought for a foundation that was:
 of any math statement.
 
 (TODO: Godel Incompleteness, then Turing and Church takes defining computability and algorithms)
+
+****
+### Uncompiled
