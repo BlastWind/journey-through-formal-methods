@@ -10,6 +10,8 @@
 - [Curry Howard Correspondence]()
   - [PAT]()
   - [Logic <-> Type Theories]()
+- [Modern Dependently Typed Languages]
+  - [Idris](./idris.md)
 - [SMT Solvers]()
   - [Theory and Implementation](./smt_theory_and_implementation.md)
 
