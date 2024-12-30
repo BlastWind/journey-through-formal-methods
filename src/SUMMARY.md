@@ -10,10 +10,11 @@
 - [Curry Howard Correspondence]()
   - [PAT]()
   - [Logic <-> Type Theories]()
-- [Modern Dependently Typed Languages]
+- [Modern Dependently Typed Languages]()
   - [Idris](./idris.md)
 - [SMT Solvers]()
   - [Theory and Implementation](./smt_theory_and_implementation.md)
+  - [Symbolic Execution]()
 
 
 - [Verified Rust with Verus]()
@@ -22,5 +23,6 @@
   - [Case Study: Verified Parsers](./verified_parsers.md)
 
 - [Verifying Cryptography]()
-  - [Crypto Fundamentals]()
-  - [Cryptol and SAW](./cryptol_and_saw.md)
+  - [Cryptol for Haskell Knowers](./cryptol_for_haskell_devs.md)
+  - [Cryptol for Anyone](./cryptol_for_anyone.md)
+  - [Cryptol + Saw]()

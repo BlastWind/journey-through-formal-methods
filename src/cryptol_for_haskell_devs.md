@@ -5,23 +5,17 @@
 Cryptol is implemented in Haskell.
 
 ### Size-polymorphism
-
-> In general, type predicates exclusively describe arithmetic constraints on type variables. Cryptol does not have a general-purpose dependent type system, but a size-polymorphic type system.
-> There is a spectrum of type systems employed by programming languages, all the way from completely untyped to fancier dependently typed languages. There is no simple answer to the question, what type system is the best? It depends on the application domain. We have found that Cryptol’s size-polymorphic type system is a good fit for programming problems that arise in the domain of cryptography. The bit-precise type system makes sure that we never pass an argument that is 32 bits wide in a buffer that can only fit 16. The motto is: Well typed programs do not go wrong.
-> In practical terms, this means that the type system catches most of the common mistakes that programmers tend to make. Size-polymorphism is a good fit for Cryptol, as it keeps track of the most important invariant in our application domain: making sure the sizes of data can be very precisely specified and the programs can be statically guaranteed to respect these sizes.
-
 The following are types of selected Cryptol functions. You can use `:t` in the Cryptol REPL to find out for yourself.
 
 ```haskell
--- `:` is used instead of `::` in Cryptol, but I'll switch between these for whichever syntax highlights better
-take :: {front, back, a} [front + back]a -> [front]a
-drop :: {front, back, a} (fin front) => [front + back]a -> [back]a
-split :: {parts, each, a} (fin each) => [parts * each]a -> [parts][each]a
-groupBy :: {each, parts, a} (fin each) => [each * parts]a -> [parts][each]a
-join :: {parts, each, a} (fin each) => [parts][each]a -> [parts * each]a
-transpose :: {rows, cols, a} [rows][cols]a -> [cols][rows]a
-head :: {n, a} [1 + n]a -> a
-tail :: {n, a} [1 + n]a -> [n]a
+take : {front, back, a} [front + back]a -> [front]a
+drop : {front, back, a} (fin front) => [front + back]a -> [back]a
+split : {parts, each, a} (fin each) => [parts * each]a -> [parts][each]a
+groupBy : {each, parts, a} (fin each) => [each * parts]a -> [parts][each]a
+join : {parts, each, a} (fin each) => [parts][each]a -> [parts * each]a
+transpose : {rows, cols, a} [rows][cols]a -> [cols][rows]a
+head : {n, a} [1 + n]a -> a
+tail : {n, a} [1 + n]a -> [n]a
 ```
 
 
@@ -55,7 +49,7 @@ For example,
 
 With these in mind, let's read the type of `join` out loud:
 ```haskell
-join :: {parts, each, a} (fin each) => [parts][each]a -> [parts * each]a
+join : {parts, each, a} (fin each) => [parts][each]a -> [parts * each]a
 ```
 `join` takes in a 2D array of some `a`. This 2D array has row length of `parts` 
 and column length of `each`. `parts` and `each` are inferrable length values.
@@ -64,14 +58,20 @@ and column length of `each`. `parts` and `each` are inferrable length values.
 
 `join` outputs a 1D array of some `a`. This 1D array has length `parts * each`.
 
-Our takeaway from these paragraphs is that the semantic of brackets is overloaded in Cryptol. 
-But, you may be wondering one more thing: how are concrete values (like `12`) allowed in types (like `[12], [12][4], [12]Integer)`)?
-This is not something (typically) allowed and encodable in Haskell.
-Also, how is computation (e.g., `each * parts` and `front + back`) allowed in types?
+Compare this to the typical `join` type in Haskell,
+```haskell
+-- typical Haskell join
+join :: [[a]] -> [a]
+```
+Cryptol's `join` is a lot more powerful than Haskell's `join` (though, in the next section, I show you how one might implement Cryptol's `join` in Haskell).
 
+The key to Cryptol's `join`'s power is that arithmetic constraints can be imposed at the type level!
+Cryptol calls this "size-polymorphism". But more generally, when types can depend on values, as is the case here,
+a language is "dependently typed". Cryptol offers limited dependent types, allowing types
+to only dependent on arithmetic values. This seems to be the sweet spot for a Cryptography DSL.
 
 ### Size-polymorphism: Implementation
-The keyword is dependent types. Dependent types allow us to variate (depend) types on values.
+To encode size-polymorphism in Haskell is to wonder how to generally encode dependent types in Haskell. Dependent types allow us to variate (depend) types on values.
 If you have experiences with modern dependently typed 
 languages you will find in (TODO: ref), you will see that this section
 details how to emulate dependent type features in a more roundabout way in Haskell.
@@ -110,4 +110,4 @@ type is the kind `Nat'`.
 Note, our type constructors have no value constructors. This is fine, we
 are in kind-type land and no longer in type-value land.
 
-Finally, with `Nat` being defined inductively
+Finally, with `Nat` being defined inductively, (TODO: type family plus and mult and define join)
