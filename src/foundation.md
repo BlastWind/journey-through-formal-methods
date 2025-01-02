@@ -1,3 +1,22 @@
+# Outline
+  - Glossary: Introduce terms, reference later
+  - Paradoxes: Puzzles to start thinking about that relates to inconsistency and others
+  - Incompleteness, Undecidability, Inconsistency: Defining three key terms
+  - Computability and the Typed Lambda Calculus: Defining computability, another key term, define lambda calculus up to simply typed.
+  - Propositions as Types: The First Correspondence — Between Gentz's natural deduction and Church's lambda calculus. This allows us to start generalizing.
+  - Church Encodings: It might be confusing what one can do in typed lambda calculus: So let's show how to encode actual useful things (arithmetic, boolean, lists, ADTs).
+  - Lambda Cube: From STLC to CiC
+  - Propositions as Types: More Incarnations —
+	- System F and the Polymorphic Lambda Calculus
+	- Modal Logic and Monads
+  - HoTT: Topology and type theory?!!
+- [Modern Dependently Typed Languages]()
+  - [Idris](./idris.md)
+- [SMT Solvers]()
+  - [Theory and Implementation](./smt_theory_and_implementation.md)
+  - [Symbolic Execution]()
+
+
 
 # Paradoxes, Foundations, and Computability
 

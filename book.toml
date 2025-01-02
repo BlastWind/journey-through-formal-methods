@@ -4,3 +4,6 @@ language = "en"
 multilingual = false
 src = "src"
 title = "A Tour of Formal Verifications"
+
+[output.html]
+mathjax-support = true

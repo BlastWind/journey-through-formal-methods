@@ -212,3 +212,6 @@ are instances of class `Zero` (`zero` is the bottom value).
 <!-- TODO: I don't actually understand what's going on with decidability. 
 Why do we want to decide?
 Then, more general arithmetic predicates are allowed. As we saw earlier, we can write a function from `[parts][each]a -> [parts * each]a`. We can write programs with arbitrarily complicated predicates. Now, type inference in the presence of arithmetic predicates is an undecidable problem. For example, one can write `{k} (2 >= k, k > 5) => [k]`. No algorithm can decide this problem in general. To aid with this, Cryptol uses a powerful SMT solver capable of reasoning about complex arithmetic theories within these algorithms. -->
+
+
+## Classic Ciphers
