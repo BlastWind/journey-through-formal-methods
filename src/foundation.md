@@ -1,4 +1,6 @@
-# Outline
+# Foundations
+
+## Outline
   - Glossary: Introduce terms, reference later
   - Paradoxes: Puzzles to start thinking about that relates to inconsistency and others
   - Incompleteness, Undecidability, Inconsistency: Defining three key terms
@@ -10,15 +12,9 @@
 	- System F and the Polymorphic Lambda Calculus
 	- Modal Logic and Monads
   - HoTT: Topology and type theory?!!
-- [Modern Dependently Typed Languages]()
-  - [Idris](./idris.md)
-- [SMT Solvers]()
-  - [Theory and Implementation](./smt_theory_and_implementation.md)
-  - [Symbolic Execution]()
 
 
-
-# Paradoxes, Foundations, and Computability
+## Uncompiled
 
 1901. Russell's paradox. This is a paradox expressable (encodable) in naive set theory and formal logic.
 

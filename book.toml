@@ -3,7 +3,7 @@ authors = ["blastwind"]
 language = "en"
 multilingual = false
 src = "src"
-title = "A Tour of Formal Verifications"
+title = "A Journey Through Formal Methods"
 
 [output.html]
 mathjax-support = true

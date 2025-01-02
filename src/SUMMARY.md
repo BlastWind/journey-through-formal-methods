@@ -1,5 +1,5 @@
 # Summary
-
+[Introduction]()
 - [Foundations](./foundation.md)
   - [Glossary]()
   - [Paradoxes]()
