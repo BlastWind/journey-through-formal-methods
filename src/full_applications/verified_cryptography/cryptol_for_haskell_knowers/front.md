@@ -178,6 +178,16 @@ stream = [0x3F, 0xE2, 0x65, 0xCA] # new
 Soak in the beauty for a bit, then, think carefully about how laziness enables this code. Beware of showing this to your imperative friends.
 > Those who were seen dancing were thought to be insane by those who could not hear the music.
 
+More generally,
+```haskell
+ys = [i] # [ f (x, y) | x <- xs
+                      | y <- ys
+]
+```
+where `xs` is some input sequence, `i` is the result corresponding to the empty sequence, and `f` is a transformer to compute the next element, using the previous result and the next input.
+
+
+
 
 ### Using Type in Variable Context
 
