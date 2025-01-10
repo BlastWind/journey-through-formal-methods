@@ -32,5 +32,4 @@ def cons (α : Type) (a : α) (as : List α) : List α :=
 
 
 
-
 think of β as a family of types over α, that is, a type β a

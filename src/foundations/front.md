@@ -41,5 +41,8 @@ of any math statement.
 
 (TODO: Godel Incompleteness, then Turing and Church takes defining computability and algorithms)
 
+Although Godel stirred things up, Hilbert's program is not completely loss. Modern work on SAT solvers and decision procedures
+are rooted in these (and of earlier logical foundations).
+
 ****
 ### Uncompiled
