@@ -125,7 +125,7 @@ to be a proper sum of some sort is if additions wrap around (overflow).
 As a side note, `Ring` and `Field` are algebraic structures. The set of integers form a `Ring` because 
 we can define `(+)` and `(*)` according to a set of rules. However, the set of integers do not form 
 a `Field`, which requires every nonzero element to have a multiplicative inverse. The prototypical
-example of a `Field` is the set of integers modulo \\( m \\) with \\( m \\) prime.
+example of a `Field` is the set of integers modulo $ m $ with $ m $ prime.
 
 The last piece worth mentioning is arithmetic type inferencing. I illustrate these with examples instead of describing
 rules.
