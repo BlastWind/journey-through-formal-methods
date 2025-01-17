@@ -38,3 +38,8 @@ The later writings start to zoom-in on the "how"s.
 I hope that when you see this, I have a few crisp chapters done. But it will be a long journey for me. 
 Out of the eight sections I planned, I am only confident in writing about the first two with my current knowledge.
 But, this is my profession, so I get the chance to sit in it all day, and I will sure slay the beast.
+
+Reminders to self: 
+1. A concept is useless without examples,
+2. Put myself in it sometimes — how did I learn X?
+
