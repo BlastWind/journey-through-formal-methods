@@ -35,7 +35,15 @@ Satisfiability: $ \set{p_1, \dots, p_n} $ is satisfiable if and only if for some
 The two branches of logic are systematically related. Most languages have syntactic 
 and semantic concepts that coincide exactly ($\vdash$ corresponds to $\vDash$) — such an axiom system is said to be complete.
 
-### 1.2 The ancients
+### 1.2 Syllogism -> Boolean
+```admonish info title="Take away one thing"
+Boole married algebra into logic, ending the two millennium reign of Aristotelian syllogisms.
+```
+
+TODO: Start with syllogism, quickly mention stoics, then go into bool and Venn.
+The story is that Boolean rendered syllogism unneeded and that Boole introduced
+Algebra into logic.
+
 Aristotle invented syllogistic or categorical logic. The building block of the logic is categorical propositions, which
 is a subject-predicate sentence appearing in one of four forms: every $S$ is $P$, no $S$
 is $P$, some $S$ is $P$, and some $S$ is not $P$.
@@ -44,8 +52,10 @@ is $P$, some $S$ is $P$, and some $S$ is not $P$.
 <!-- Since Aristotle viewed language as expressing ideas that signified entities and the properties they instantiate in 
 the "world", these *categorical* propositions are "evaluated" in some world $w$,
 so this is the model theory and semantical part of the logic. -->
-A syllogism has the syntax $(p, q) \to r$ where $p, q, r$ are all categorical propositions.
+In modern interpretation, a syllogism has the syntax $(p, q) \to r$ where $p, q, r$ are all categorical propositions.
 $p$ is the major premise, $q$ is the minor premise, and $r$ is the conclusion. 
+But back in Aritotle's time, there is no notion of $\to$ and $\land$ yet,
+so a syllogism is written out as three sentences in natural language.
 
 To show the validity of a syllogism, we need to be able to derive $r$ from $(p, q)$, using the following rules:
 
@@ -86,17 +96,71 @@ $$(\text{every }Y\text{ is }Z \land \text{every }X\text{ is }Y) \to \text{every 
 
 $$(\text{every }X\text{ is }Y \land \text{every }Y\text{ is }Z) \to \text{every }X\text{ is }Z$$
 
-and hence our syllogism is valid by Axiom 2.
+and hence our syllogism is valid by Axiom 1.
 
 
 The syllogistic logic is intimately related with natural language — categorical propositions 
 deal with subjects and predicates by default. This logic is less abstract than first-order logic
 but aligns with our natural reasoning a bit more.
 
-**More interestingly, we may use set theory to provide the semantics of syllogistic logic.
-Then, due to the fact that syllogisms always come in 3 categorical propositions, we can use Venn diagrams to prove things (see [this](https://phil240.tamu.edu/LectureNotes/6.3.pdf))!**
+The Stoics (300s-200s BC) generalized categorical propositions to propositions
+most are familiar with: A sentence which is either true or false (evalutes 
+to a boolean). Though, in modern times, a proposition's truth might not even 
+be decidable!
+
+The Stoics introduced inference rules that have remained
+part of the logical lore ever since:
+
+$$
+\begin{align*}
+p, p \to q &\vDash q && \text{(modus ponens)} \\
+\neg q, p \to q &\vDash \neg p  && \text{(modus tollens)}\\
+\neg q, p \lor q  &\vDash q && \text{(disjunctive syllogism)}\\
+p \to q, q \to r & \vDash p \to r && \text{(hypothetical syllogism)}
+\end{align*}
+$$
+But again, the syntax above is the modern interpretation of the Stoic rules.
+Back then $\to$, $\neg$ were not introduced. 
+
+So who introduced these symbols? Who brought algebra into logics?
+
+It was Boole, Jevon, and Venn.
+
+The Boolean algebra was invented by Boole and then subsequently improved upon by Jevon and Venn. A structure $\langle B, \lor, \land, \neg, 0, 1\rangle$ is a Boolean algebra if and only if $\lor$ and $\land$ are binary operations satisfies some rules.
+
+$$
+\begin{align*}
+x ∧ y = y ∧ x; && x ∨ ¬x = 1; \\
+x ∨ y = y ∨ x; && 1 ∧ x = x; \\
+x ∨ (y ∧ z) = (x ∨ y) ∧ (x ∨ z); && 0 ∨ x = x; \\
+x ∧ (y ∨ z) = (x ∧ y) ∨ (x ∧ z); && x ∧ ¬x = 0;
+\end{align*}
+$$
+
+Boolean algebra is a structure, not an instance, so we can find examples for them.
+
+The prototypical example is the two-element Boolean algebra:
+
+| $\land$ | $0$ | $1$ |     | $\lor$ | $0$ | $1$ |     | $a$ | $0$ | $1$ |
+|---|---|---|-----|---|---|---|-----|---|---|---|
+| $0$ | $0$ | $0$ |     | $0$ | $0$ | $1$ |     | $\neg a$ | $1$ | $0$ |
+| $1$ | $0$ | $1$ |     | $1$ | $1$ | $1$ |     |   |   |   |
+
+More interestingly, the power set of any nonempty set $S$ forms a Boolean 
+algebra. If you have taken discrete mathematics, then swapping $\land, \lor$
+with $\cap$ and $\cup$ in the equations above will give you set theory 
+statements you have surely seen.
+
+So, the two-element Boolean algebra is a boolean algebra, and any powerset
+is a boolean algebras. Since the two-element Boolean algebra 
+is used for logic, we see some connection between 
+logic and set theory! There is no clearly defined, set-theoretic semantics
+for logic yet, but we are on our way.
+
+**But, we may use set theory to provide the semantics for syllogistic logic already**! Due to the fact that syllogisms always come in 3 categorical propositions, we can use Venn diagrams to prove things (see [this](https://phil240.tamu.edu/LectureNotes/6.3.pdf))!
 Previously, we proved validity (derivability in proof theory) using axioms and inference rules, all of which were syntactic.
 However, with set theory and Venn diagrams, the semantic validity is visual!
+
 
 Usually, we don't get such nice visual semantics, but with syllogisms coming in precisely 3 terms, we can always use Venn diagrams.
 In general, proving is done with inference rules (syntactic), as they are mechanized and efficient. The underlying, semantic model of things
@@ -105,7 +169,36 @@ syllogistic logic), category theorectic (used in type theory), and operational a
 
 
 
+If you are curious about the structure itself, here are some algebraic, order-theoretic, and category-theoretic statements we can ascribe to it —
+1. A Boolean algebra give rises to a boolean ring (and vice versa). 
+The rules of boolean algebra is close but is not trivially a ring. This 
+is because $\lor, \land$ as addition ($+$) and multiplication ($\circ$) won't cut it.
+Consider the additive identity rule of rings: $x + (-x) = 0$.
+This is interpreted as $x \lor \neg x = 0$, which is not true. However,
+if we define and use exclusive or: $x \veebar y = (x \lor  y) \land \neg(x \land y)$ 
+as the addition, a ring follows.
+2. A Boolean algebra is a complemented distributive lattice.
+Terms like filters and ultrafilters are also thrown around here.
+3. Boolean algebras and boolean homomorphisms form a category.
+$\mathcal{P}(1)$ is initial.
+
+
 ## Resources
 Handbook of satisfiability
 
 [Syllogism and Venn Diagrams](https://phil240.tamu.edu/LectureNotes/6.3.pdf)
+
+
+Propositional Logic -> valuations
+Predicate Logic / FOL -> structures
+
+Both of these things are interpretations of our
+language/signature. They need not satisfy any theory.
+For example, a structure for the signature of groups need not 
+be a group. But a model of a group is a structure for the 
+signature of groups that satisfies the theory of groups.
+
+In writing down the theory is where you actually assign
+constaints.
+
+TODO: Add in Colin's notes

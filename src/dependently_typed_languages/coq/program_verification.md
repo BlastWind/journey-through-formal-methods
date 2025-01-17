@@ -49,7 +49,16 @@ Now, `cequiv` is a mathematical equivalence (it is straightforward to show refle
 symmetry, and transtivity). However, it is not so obvious that behavioral equivalence
 is a congruence.
 
-But congruence is desirable, since this tells us that the equivalences of two subprograms implies
+Recall, congruence is an equivalence relation on a set $S$. But importantly, 
+it must be constructed against some operation $*$ between elements of $S$.
+
+Your equivalence relation $\sim$ is congruent if for all $s_1 \sim s_2$
+and $t_1 \sim t_2$, you have $s_1 * t_1 \sim s_2 * t_2$. The `cequiv`
+congruence (yet to be proven) is a relation on the set of all programs 
+and $*$ are the compositional constructors.
+
+
+Congruence is desirable, since this tells us that the equivalences of two subprograms implies
 the equivalence of the larger programs in which they are embedded. For example,
 ```
               cequiv c1 c1'
@@ -61,3 +70,5 @@ This showcases just one embedding: The embedding of smaller programs into a larg
 
 There are five constructors that builds larger programs out of smaller ones: `E_Seq`, `E_WhileTrue`, `E_WhileFalse`,
 `E_IfTrue` and `E_IfFalse`. We need to show congruence for each of these separately.
+
+TODO: Though `ceval` is a relation, it is a partial function! But what if we add non-determinism to it?
