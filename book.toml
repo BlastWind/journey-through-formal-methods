@@ -8,3 +8,12 @@ title = "A Journey Through Formal Methods"
 
 [preprocessor.katex]
 after = ["links"]
+
+[preprocessor.admonish]
+command = "mdbook-admonish"
+assets_version = "3.0.2" # do not edit: managed by `mdbook-admonish install`
+
+[output]
+
+[output.html]
+additional-css = ["./mdbook-admonish.css"]
