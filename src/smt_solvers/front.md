@@ -35,6 +35,10 @@ Satisfiability: $ \set{p_1, \dots, p_n} $ is satisfiable if and only if for some
 The two branches of logic are systematically related. Most languages have syntactic 
 and semantic concepts that coincide exactly ($\vdash$ corresponds to $\vDash$) — such an axiom system is said to be complete.
 
+### A solid example of proof theory vs model theory
+
+
+
 ### 1.2 Syllogism -> Boolean
 ```admonish info title="Take away one thing"
 Boole married algebra into logic, ending the two millennium reign of Aristotelian syllogisms.
